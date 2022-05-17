@@ -30,7 +30,7 @@ pgporada/etcd-operator	0.11.2       	1.2.0      	Fork of CoreOS etcd-operator He
 
 Note that by default chart installs etcd operator only. If you want to also deploy `etcd` cluster, enable `customResources.createEtcdClusterCRD` flag:
 ```bash
-$ helm install --name my-release --set customResources.createEtcdClusterCRD=true stable/etcd-operator
+$ helm install --name my-release --set customResources.createEtcdClusterCRD=true pgporada/etcd-operator
 ```
 
 ## Uninstalling the Chart
@@ -51,7 +51,7 @@ $ helm upgrade -f ./helm-configs/etcd-operator-values.yaml etcd-operator ~/etcd-
 
 Example resizing etcd cluster from `3` to `5` nodes during helm upgrade:
 ```bash
-$ helm upgrade my-release --set etcdCluster.size=5 --set customResources.createEtcdClusterCRD=true stable/etcd-operator
+$ helm upgrade my-release --set etcdCluster.size=5 --set customResources.createEtcdClusterCRD=true pgporada/etcd-operator
 ```
 
 ## Configuration
@@ -129,14 +129,14 @@ The following table lists the configurable parameters of the etcd-operator chart
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example:
 
 ```bash
-$ helm install --name my-release --set image.tag=v1.2.0 stable/etcd-operator
+$ helm install --name my-release --set image.tag=v1.2.0 pgporada/etcd-operator
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm install --name my-release --values values.yaml stable/etcd-operator
+$ helm install --name my-release --values values.yaml pgporada/etcd-operator
 ```
 
 ## RBAC
@@ -161,7 +161,7 @@ If the output contains "beta" or both "alpha" and "beta" you can may install rba
 RBAC resources are enabled by default. To disable RBAC do the following:
 
 ```console
-$ helm install --name my-release stable/etcd-operator --set rbac.create=false
+$ helm install --name my-release pgporada/etcd-operator --set rbac.create=false
 ```
 
 ### Changing RBAC manifest apiVersion
@@ -169,5 +169,5 @@ $ helm install --name my-release stable/etcd-operator --set rbac.create=false
 By default the RBAC resources are generated with the "v1beta1" apiVersion. To use "v1alpha1" do the following:
 
 ```console
-$ helm install --name my-release stable/etcd-operator --set rbac.install=true,rbac.apiVersion=v1alpha1
+$ helm install --name my-release pgporada/etcd-operator --set rbac.install=true,rbac.apiVersion=v1alpha1
 ```
