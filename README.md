@@ -1,4 +1,4 @@
-# For on2itsecurity/etcd-operator
+# Helm chart for on2itsecurity/etcd-operator
 
 ## Introduction
 
@@ -10,15 +10,22 @@ Official project documentation found [here](https://github.com/on2itsecurity/etc
 
 ## Prerequisites
 
-- Kubernetes 1.22+ with stable APIs
-- __Suggested:__ PV provisioner support in the underlying infrastructure to support backups
+- Kubernetes `>=1.22` with stable APIs
 
 ## Installing the Chart
 
 To install the chart with the release name `my-release`:
 
 ```bash
-$ helm install -f ./helm-configs/etcd-operator-values.yaml etcd-operator ~/etcd-operator-helm-chart --namespace testflume
+# If you check out this code locally
+$ git clone https://github.com/pgporada/etcd-operator-helm-chart
+$ helm install etcd-operator ~/etcd-operator-helm-chart -f /tmp/values.yaml --namespace testflume
+
+# Installing it via my helm repository, for better or worse, probably worse :shrug:
+$ helm repo add pgporada https://www.philporada.com/charts/
+$ helm search repo pgporada/etcd-operator --versions
+NAME                  	CHART VERSION	APP VERSION	DESCRIPTION
+pgporada/etcd-operator	0.11.2       	1.2.0      	Fork of CoreOS etcd-operator Helm chart for Kub...
 ```
 
 Note that by default chart installs etcd operator only. If you want to also deploy `etcd` cluster, enable `customResources.createEtcdClusterCRD` flag:
