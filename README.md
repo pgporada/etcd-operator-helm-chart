@@ -26,6 +26,7 @@ $ helm repo add pgporada https://www.philporada.com/charts/
 $ helm search repo pgporada/etcd-operator --versions
 NAME                  	CHART VERSION	APP VERSION	DESCRIPTION
 pgporada/etcd-operator	0.11.2       	1.2.0      	Fork of CoreOS etcd-operator Helm chart for Kub...
+$ helm install etcd-operator pgporada/etcd-operator -f /tmp/values.yaml --namespace testflume
 ```
 
 Note that by default chart installs etcd operator only. If you want to also deploy `etcd` cluster, enable `customResources.createEtcdClusterCRD` flag:
