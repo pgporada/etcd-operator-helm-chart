@@ -42,7 +42,7 @@ etcdOperator:
   replicaCount: 1
   image:
     repository: ghcr.io/on2itsecurity/etcd-operator
-    tag: v1.2.0
+    tag: v1.2.1
     pullPolicy: Always
   resources:
     cpu: 150m
@@ -76,8 +76,8 @@ backupOperator:
   name: etcd-backup-operator
   replicaCount: 1
   image:
-    repository: quay.io/coreos/etcd-operator
-    tag: v0.9.4
+    repository: ghcr.io/on2itsecurity/etcd-operator
+    tag: v1.2.1
     pullPolicy: Always
   resources:
     cpu: 100m
@@ -102,8 +102,8 @@ restoreOperator:
   name: etcd-restore-operator
   replicaCount: 1
   image:
-    repository: quay.io/coreos/etcd-operator
-    tag: v0.9.4
+    repository: ghcr.io/on2itsecurity/etcd-operator
+    tag: v1.2.1
     pullPolicy: Always
   port: 19999
   resources:
